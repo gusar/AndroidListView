@@ -35,7 +35,7 @@ public class CountryAdapter extends ArrayAdapter<Country> {
 
     Country country = getItem(position);
     if (country != null) {
-      viewHolder.countryName.setText(country.name);
+      viewHolder.countryName.setText(country.getName());
     }
 
     return convertView;
