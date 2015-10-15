@@ -14,5 +14,7 @@ public class CountryActivity extends Activity {
     
     TextView textView = (TextView) findViewById(R.id.country_name);
     textView.setText(getIntent().getExtras().getString("country"));
+
+    // imageview.setImageResource(R.drawable.picture);
   }
 }

@@ -22,20 +22,6 @@ public class Country {
     return name;
   }
 
-
-  //  Create an ArrayList of Countries
-//  public static ArrayList<Country> getCountries() {
-//    ArrayList<Country> countryList = new ArrayList<>();
-//
-//    final Resources resources = Resources.getSystem();
-//    String[] listData = resources.getStringArray(R.array.list_data);
-//
-//    for (String s : listData) {
-//      countryList.add(new Country(s));
-//    }
-//    return countryList;
-//  }
-
 }
 
 

@@ -1,13 +1,17 @@
 package com.example.andy.androidlistview;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends ListActivity {
+
+  public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +22,9 @@ public class MainActivity extends ListActivity {
     String[] listData = getResources().getStringArray(R.array.list_data);
 
     for (String s : listData) {
-      countryList.add(new Country(s));
+      Country c = new Country(s);
+      countryList.add(c);
+      Log.d(LOG_TAG, "Initializing... " + c.getName());
     }
 
     CountryAdapter countryAdapter = new CountryAdapter(this, countryList);
@@ -27,12 +33,12 @@ public class MainActivity extends ListActivity {
 
 
   @Override
-  protected void onListItemClick(ListView l, View v, int position, long id) {
-    super.onListItemClick(l, v, position, id);
-    String itemString = (String) l.getItemAtPosition(position);
-
+  public void onListItemClick(ListView listView, View view, int position, long id) {
+    Intent intent = new Intent(MainActivity.this, CountryActivity.class);
+    Country selectedCountry = (Country) (listView.getItemAtPosition(position));
+//    Log.d(LOG_TAG, "Selected country: " + extra);
+    intent.putExtra("country", selectedCountry.getName());
+    startActivity(intent);
   }
 
-
-  // imageview.setImageResource(R.drawable.picture);
 }
