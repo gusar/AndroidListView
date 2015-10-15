@@ -3,8 +3,9 @@ package com.example.andy.androidlistview;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends ListActivity {
 
@@ -13,14 +14,15 @@ public class MainActivity extends ListActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    String[] stringList = getResources().getStringArray(R.array.list_data);
+    ArrayList<Country> countryList = new ArrayList<>();
+    String[] listData = getResources().getStringArray(R.array.list_data);
 
-    ArrayAdapter<String> adapter = new ArrayAdapter<>(
-        this,
-        android.R.layout.simple_list_item_1,
-        stringList);
+    for (String s : listData) {
+      countryList.add(new Country(s));
+    }
 
-    this.setListAdapter(adapter);
+    CountryAdapter countryAdapter = new CountryAdapter(this, countryList);
+    setListAdapter(countryAdapter);
   }
 
 

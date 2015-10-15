@@ -1,11 +1,6 @@
 package com.example.andy.androidlistview;
 
 
-import android.content.res.Resources;
-
-import java.util.ArrayList;
-
-
 public class Country {
   private int flag;
   private String name;
@@ -29,17 +24,17 @@ public class Country {
 
 
   //  Create an ArrayList of Countries
-  public static ArrayList<Country> getCountries() {
-    ArrayList<Country> countryList = new ArrayList<>();
-
-    final Resources resources = Resources.getSystem();
-    String[] listData = resources.getStringArray(R.array.list_data);
-
-    for (String s : listData) {
-      countryList.add(new Country(s));
-    }
-    return countryList;
-  }
+//  public static ArrayList<Country> getCountries() {
+//    ArrayList<Country> countryList = new ArrayList<>();
+//
+//    final Resources resources = Resources.getSystem();
+//    String[] listData = resources.getStringArray(R.array.list_data);
+//
+//    for (String s : listData) {
+//      countryList.add(new Country(s));
+//    }
+//    return countryList;
+//  }
 
 }
 
