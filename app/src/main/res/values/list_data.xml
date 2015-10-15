@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_data">
+        <item>Germany</item>
+        <item>Ireland</item>
+        <item>Spain</item>
+        <item>Greece</item>
+        <item>Poland</item>
+        <item>Russia</item>
+        <item>France</item>
+        <item>Netherlands</item>
+        <item>Estonia</item>
+        <item>Latvia</item>
+        <item>Finland</item>
+        <item>Sweden</item>
+        <item>Norway</item>
+        <item>Lithuania</item>
+        <item>Portugal</item>
+        <item>Italy</item>
+    </string-array>
+</resources>
