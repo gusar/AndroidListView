@@ -11,8 +11,11 @@ public class CountryActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_country);
-    
-    TextView textView = (TextView) findViewById(R.id.country_name);
+
+    /**
+     * retrieve extras sent by the intent from parent activity
+     */
+    TextView textView = (TextView) findViewById(R.id.country_name2);
     textView.setText(getIntent().getExtras().getString("country"));
   }
 }

@@ -1,4 +1,4 @@
-package com.example.andy.androidlistview;
+package com.example.andy.androidlistview.HashMapAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.andy.androidlistview.R;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -49,7 +51,7 @@ public class CountryAdapter extends BaseAdapter {
           .inflate(R.layout.row, parent, false);
 
       viewHolder = new ViewHolder();
-      viewHolder.countryName = (TextView) convertView.findViewById(R.id.country);
+      viewHolder.countryName = (TextView) convertView.findViewById(R.id.country_name);
       viewHolder.countryFlag = (ImageView) convertView.findViewById(R.id.country_flag);
       convertView.setTag(viewHolder);
     } else {
