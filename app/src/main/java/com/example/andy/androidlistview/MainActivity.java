@@ -7,27 +7,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends ListActivity {
 
-  public static final String LOG_TAG = MainActivity.class.getSimpleName();
+  private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    ArrayList<Country> countryList = new ArrayList<>();
-    String[] listData = getResources().getStringArray(R.array.list_data);
-
-    for (String s : listData) {
-      Country c = new Country(s);
-      countryList.add(c);
-      Log.d(LOG_TAG, "Initializing... " + c.getName());
-    }
-
-    CountryAdapter countryAdapter = new CountryAdapter(this, countryList);
+    CountryAdapter countryAdapter = new CountryAdapter(loadCountryMap());
     setListAdapter(countryAdapter);
   }
 
@@ -35,10 +27,37 @@ public class MainActivity extends ListActivity {
   @Override
   public void onListItemClick(ListView listView, View view, int position, long id) {
     Intent intent = new Intent(MainActivity.this, CountryActivity.class);
-    Country selectedCountry = (Country) (listView.getItemAtPosition(position));
-//    Log.d(LOG_TAG, "Selected country: " + extra);
-    intent.putExtra("country", selectedCountry.getName());
+    Map.Entry<String, Integer> selectedCountryMap =
+        (Map.Entry<String, Integer>) listView.getItemAtPosition(position);
+    String selectedCountry = selectedCountryMap.getKey();
+    Log.d(LOG_TAG, "Selected country: " + selectedCountry);
+    intent.putExtra("country", selectedCountry);
     startActivity(intent);
+  }
+
+
+  private HashMap<String, Integer> loadCountryMap() {
+
+    HashMap<String, Integer> countryMap = new HashMap<>();
+
+    countryMap.put("Estonia", getResources().getIdentifier("estonia", "drawable", getPackageName()));
+    countryMap.put("Finland", getResources().getIdentifier("finland", "drawable", getPackageName()));
+    countryMap.put("France", getResources().getIdentifier("france", "drawable", getPackageName()));
+    countryMap.put("Germany", getResources().getIdentifier("germany", "drawable", getPackageName()));
+    countryMap.put("Greece", getResources().getIdentifier("greece", "drawable", getPackageName()));
+    countryMap.put("Ireland", getResources().getIdentifier("ireland", "drawable", getPackageName()));
+    countryMap.put("Italy", getResources().getIdentifier("italy", "drawable", getPackageName()));
+    countryMap.put("Latvia", getResources().getIdentifier("latvia", "drawable", getPackageName()));
+    countryMap.put("Lithuania", getResources().getIdentifier("lithuania", "drawable", getPackageName()));
+    countryMap.put("Netherlands", getResources().getIdentifier("netherlands", "drawable", getPackageName()));
+    countryMap.put("Norway", getResources().getIdentifier("norway", "drawable", getPackageName()));
+    countryMap.put("Poland", getResources().getIdentifier("poland", "drawable", getPackageName()));
+    countryMap.put("Portugal", getResources().getIdentifier("portugal", "drawable", getPackageName()));
+    countryMap.put("Russia", getResources().getIdentifier("russia", "drawable", getPackageName()));
+    countryMap.put("Spain", getResources().getIdentifier("spain", "drawable", getPackageName()));
+    countryMap.put("Sweden", getResources().getIdentifier("sweden", "drawable", getPackageName()));
+
+    return countryMap;
   }
 
 }
