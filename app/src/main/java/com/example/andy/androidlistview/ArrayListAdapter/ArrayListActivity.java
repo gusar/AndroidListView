@@ -48,7 +48,9 @@ public class ArrayListActivity extends ListActivity {
   public void onListItemClick(ListView listView, View view, int position, long id) {
     Intent intent = new Intent(ArrayListActivity.this, CountryActivity.class);
     String selectedCountry = (String) listView.getItemAtPosition(position);
+    intent.putExtra("position", Integer.toString(position));
     intent.putExtra("country", selectedCountry);
+    Log.d(LOG_TAG, "Extras: " + Integer.toString(position) + " : " + selectedCountry);
     startActivity(intent);
   }
 

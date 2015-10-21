@@ -15,7 +15,9 @@ public class CountryActivity extends Activity {
     /**
      * retrieve extras sent by the intent from parent activity
      */
-    TextView textView = (TextView) findViewById(R.id.country_name2);
-    textView.setText(getIntent().getExtras().getString("country"));
+    TextView textViewCountryName = (TextView) findViewById(R.id.country_name2);
+    textViewCountryName.setText(getIntent().getExtras().getString("country"));
+    TextView textViewPositionNumber = (TextView) findViewById((R.id.country_position));
+    textViewPositionNumber.setText(getIntent().getExtras().getString("position"));
   }
 }

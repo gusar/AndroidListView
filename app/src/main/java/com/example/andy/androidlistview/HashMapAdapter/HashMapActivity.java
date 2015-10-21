@@ -35,6 +35,7 @@ public class HashMapActivity extends ListActivity {
     String selectedCountry = selectedCountryMap.getKey();
     Log.d(LOG_TAG, "Selected country: " + selectedCountry);
     intent.putExtra("country", selectedCountry);
+    intent.putExtra("position", Integer.toString(position));
     startActivity(intent);
   }
 
